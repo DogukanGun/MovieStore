@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MovieStore</string>
+
+    <string name="network_error_message_title">Network Error</string>
+    <string name="network_error_message_text">Please try again.</string>
+    <string name="repeatable_dialog_error_message">Let\'s try again.</string>
+
+    <string name="dialog_positive_button">Okay</string>
+</resources>
