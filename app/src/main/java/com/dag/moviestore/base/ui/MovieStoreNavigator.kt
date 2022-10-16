@@ -2,7 +2,7 @@ package com.dag.moviestore.base.ui
 
 import android.content.Intent
 import com.dag.moviestore.dailogbox.KeyValueModel
-import com.dag.moviestore.MainActivity
+import com.dag.moviestore.ui.onboard.MainActivity
 import com.dag.moviestore.R
 import com.dag.moviestore.base.general.MovieStoreActivityListener
 import javax.inject.Inject

@@ -3,7 +3,7 @@ package com.dag.moviestore.dailogbox.authentication
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
 import com.dag.moviestore.dailogbox.DefaultModelDialog
-import com.dag.moviestore.MainActivity
+import com.dag.moviestore.ui.onboard.MainActivity
 import com.dag.moviestore.dailogbox.ModelDialog
 import com.dag.moviestore.dailogbox.ModelDialogButton
 import com.dag.moviestore.dailogbox.ModelDialogHandler

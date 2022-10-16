@@ -2,14 +2,10 @@ package com.dag.moviestore.base.compose.navcontroller
 
 sealed class NavScreen(val route:String) {
 
-    object SplashScreen : NavScreen("splash_screen")
-    object WelcomeScreen : NavScreen("welcome_screen")
-    object PhoneScreen: NavScreen("phone_screen")
-    object PasswordScreen: NavScreen("password_screen")
-    object LoginScreen: NavScreen("login_screen")
+    object SplashScreen: NavScreen("splash_screen")
     object HomeScreen: NavScreen("home_screen")
     object HomeListScreen: NavScreen("homelist_screen")
-    object MainActivity: NavScreen("mainactivity_screen")
+    object LoginScreen: NavScreen("login_screen")
 
 }
 

@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-class MovieStoreViewModel: ViewModel(){
+abstract class MovieStoreViewModel: ViewModel(){
 
     var viewState = MutableLiveData<MovieStoreViewState>()
     private val loading = MutableLiveData<Boolean>(false)

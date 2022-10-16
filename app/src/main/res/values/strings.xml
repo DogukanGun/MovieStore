@@ -1,9 +1,12 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MovieStore</string>
+
 
     <string name="network_error_message_title">Network Error</string>
     <string name="network_error_message_text">Please try again.</string>
     <string name="repeatable_dialog_error_message">Let\'s try again.</string>
 
     <string name="dialog_positive_button">Okay</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_screen_tablayout_text" tools:ignore="ExtraTranslation">Login with</string>
 </resources>

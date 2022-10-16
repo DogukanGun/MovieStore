@@ -3,17 +3,23 @@ package com.dag.moviestore.base.compose.navcontroller
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.dag.moviestore.base.compose.MovieStoreSurface
 import com.dag.moviestore.base.compose.appbar.CustomAppbar
 import com.dag.moviestore.base.compose.bottomnavigation.CustomBottomNavigation
+import com.dag.moviestore.ui.onboard.login.LoginScreen
+import com.dag.moviestore.ui.onboard.login.LoginVM
+import com.dag.moviestore.ui.onboard.splash.SplashScreen
+import com.dag.moviestore.ui.onboard.splash.SplashVM
 
 @Composable
 fun NavGraph(
-    startDestination: String = NavScreen.WelcomeScreen.route,
+    startDestination: String = NavScreen.SplashScreen.route,
     isOnboard: Boolean = false,
 ) {
     val navController = rememberNavController()
@@ -40,20 +46,22 @@ fun NavGraph(
             navController = navController,
             startDestination = startDestination
         ) {
-            /*composable(NavScreen.SplashScreen.route) {
+            composable(NavScreen.SplashScreen.route) {
                 val viewModel = hiltViewModel<SplashVM>()
                 SplashScreen(
                     navController = navController,
                     viewModel = viewModel
                 )
             }
-            composable(NavScreen.WelcomeScreen.route) {
-                val viewModel = hiltViewModel<WelcomeVM>()
-                WelcomeScreen(
+
+            composable(NavScreen.LoginScreen.route) {
+                val viewModel = hiltViewModel<LoginVM>()
+                LoginScreen(
                     navController = navController,
                     viewModel = viewModel
                 )
             }
+            /*
             composable(NavScreen.PhoneScreen.route) {
                 val viewModel = hiltViewModel<PhoneVM>()
                 PhoneScreen(

@@ -21,7 +21,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.dag.moviestore.base.compose.navcontroller.NavScreen
-import com.dag.moviestore.MainActivity
+import com.dag.moviestore.ui.onboard.MainActivity
 import com.dag.moviestore.ext.findActivity
 
 
