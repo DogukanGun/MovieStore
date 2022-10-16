@@ -1,6 +1,7 @@
 package com.dag.moviestore.dailogbox.authentication
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentActivity
 import com.dag.moviestore.dailogbox.DefaultModelDialog
 import com.dag.moviestore.ui.onboard.MainActivity
@@ -19,7 +20,7 @@ class SessionTimeoutHandler @Inject constructor(
     private val modelDialogHandler: ModelDialogHandler,
 ){
 
-    fun handle(activity: FragmentActivity){
+    fun handle(activity: AppCompatActivity){
         MovieStoreSessionUtil.isSessionEndingProcessStarted = true
         modelDialogHandler.showDialog(activity,createUnAuthenticateDialog(activity))
     }

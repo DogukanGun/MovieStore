@@ -34,3 +34,14 @@ fun <T> BaseResult<ApiResponse<T>>.getDataAsResult(): BaseResult<T> {
         is BaseResult.Error -> BaseResult.Error(exception)
     }
 }
+
+fun <T> BaseResult<T>.getDataAsResultBaseResult(): BaseResult<T> {
+    return when(this){
+        is BaseResult.Success ->{
+            val response = data ?: return BaseResult.Success(null)
+            return BaseResult.Success(response)
+        }
+        is BaseResult.Loading -> BaseResult.Loading
+        is BaseResult.Error -> BaseResult.Error(exception)
+    }
+}

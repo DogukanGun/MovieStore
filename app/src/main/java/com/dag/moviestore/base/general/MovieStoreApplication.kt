@@ -24,7 +24,7 @@ class MovieStoreApplication : MultiDexApplication(), Observer {
     companion object {
         var market: MarketType = MarketType.HUAWEI
         lateinit var appInstance: MovieStoreApplication
-        var baseUrl = ""
+        var baseUrl = "http://www.omdbapi.com/"
     }
 
     @SuppressLint("SourceLockedOrientationActivity")

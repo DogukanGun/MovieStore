@@ -24,7 +24,7 @@ import javax.inject.Named
 
 class BaseDialogBoxUtil @Inject constructor(
     private val clNavigator: MovieStoreNavigator,
-    @Named(NetworkModule.AUTHENTICATED_SERVICE) private val service: MovieStoreService,
+    private val service: MovieStoreService,
     private val movieStoreActivityListener: MovieStoreActivityListener
 ){
     var baseDialogBoxCustomActionListener: BaseDialogBoxCustomActionListener? = null

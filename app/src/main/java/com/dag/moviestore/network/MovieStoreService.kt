@@ -1,5 +1,6 @@
 package com.dag.moviestore.network
 
+import com.dag.moviestore.ui.mainscreen.movies.data.Movie
 import retrofit2.http.*
 
 interface MovieStoreService {
@@ -14,5 +15,8 @@ interface MovieStoreService {
 
     @DELETE
     fun genericDeleteRequest(@Url url: String?): BaseResult<BaseResponse>
+
+    @GET("")
+    fun getMovies(@Path("t") t:String,@Query("p")plot:String): BaseResult<List<Movie>>
 
 }

@@ -48,7 +48,7 @@ fun CustomBottomNavigation(
                         onClick = {
                             if (currentRoute != it.route) {
                                 navController.navigate(it.route) {
-                                    NavScreen.HomeScreen.route.let {
+                                    NavScreen.MovieScreen.route.let {
                                         popUpTo(navController.graph.findStartDestination().id) {
                                             saveState = true
                                         }
@@ -102,7 +102,7 @@ fun CustomBottomNavigation(
 @Preview
 fun BottomNavigationPreview(){
     CustomBottomNavigation(
-        currentRoute = NavScreen.HomeScreen.route,
+        currentRoute = NavScreen.MovieScreen.route,
         navController = rememberNavController()
     )
 }

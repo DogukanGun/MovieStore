@@ -12,8 +12,11 @@ import androidx.navigation.compose.rememberNavController
 import com.dag.moviestore.base.compose.MovieStoreSurface
 import com.dag.moviestore.base.compose.appbar.CustomAppbar
 import com.dag.moviestore.base.compose.bottomnavigation.CustomBottomNavigation
-import com.dag.moviestore.ui.onboard.login.LoginScreen
-import com.dag.moviestore.ui.onboard.login.LoginVM
+import com.dag.moviestore.base.general.BaseDialogBoxUtil
+import com.dag.moviestore.ui.mainscreen.movies.features.MovieScreen
+import com.dag.moviestore.ui.mainscreen.movies.features.MovieVM
+import com.dag.moviestore.ui.onboard.login.feature.LoginScreen
+import com.dag.moviestore.ui.onboard.login.feature.LoginVM
 import com.dag.moviestore.ui.onboard.splash.SplashScreen
 import com.dag.moviestore.ui.onboard.splash.SplashVM
 
@@ -57,18 +60,18 @@ fun NavGraph(
             composable(NavScreen.LoginScreen.route) {
                 val viewModel = hiltViewModel<LoginVM>()
                 LoginScreen(
+                    viewModel = viewModel,
+                )
+            }
+
+            composable(NavScreen.MovieScreen.route) {
+                val viewModel = hiltViewModel<MovieVM>()
+                MovieScreen(
                     navController = navController,
                     viewModel = viewModel
                 )
             }
             /*
-            composable(NavScreen.PhoneScreen.route) {
-                val viewModel = hiltViewModel<PhoneVM>()
-                PhoneScreen(
-                    navController = navController,
-                    viewModel = viewModel
-                )
-            }
             composable(
                 NavScreen.PasswordScreen.route
                     .plus("/{username}")
@@ -93,19 +96,6 @@ fun NavGraph(
                         username = username,
                         userType = userType
                     )
-                )
-            }
-            composable(NavScreen.LoginScreen.route) {
-                val viewModel = hiltViewModel<LoginVM>()
-                LoginUser(
-                    navController = navController,
-                    viewModel = viewModel
-                )
-            }
-            composable(NavScreen.HomeScreen.route) {
-                val viewModel = hiltViewModel<HomeScreenVM>()
-                HomeScreen(
-                    viewModel = viewModel
                 )
             }*/
 

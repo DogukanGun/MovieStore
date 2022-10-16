@@ -1,20 +1,26 @@
 package com.dag.moviestore.dailogbox
 
+import androidx.activity.ComponentActivity
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDialog
 import androidx.fragment.app.FragmentActivity
+import com.dag.moviestore.base.general.ResourceManager
+import com.dag.moviestore.base.ui.MovieStoreActivity
 import com.dag.moviestore.base.ui.MovieStoreDialogBox
 import javax.inject.Inject
 
-class ModelDialogHandler @Inject constructor(){
+class ModelDialogHandler @Inject constructor(
+    private var resourceManager: ResourceManager
+){
 
-    fun createDialog(activity:FragmentActivity,dialog: ModelDialog):AppCompatDialog?{
+    fun createDialog(activity:ComponentActivity,dialog: ModelDialog):AppCompatDialog?{
         val alertDialog = MovieStoreDialogBox.showAlertDialog(
             activity = activity,
-            title = activity.stringValue(dialog.titleRes)!!,
-            message = activity.stringValue(dialog.messageRes)!!,
-            positiveButtonTitle = activity.stringValue(dialog.positiveButton.textRes),
-            negativeButtonTitle = activity.stringValue(dialog.negativeButton?.textRes),
+            title = resourceManager.getString(dialog.titleRes!!),
+            message = resourceManager.getString(dialog.messageRes!!),
+            positiveButtonTitle = resourceManager.getString(dialog.positiveButton.textRes),
+            negativeButtonTitle = dialog.negativeButton?.textRes?.let { resourceManager.getString(it) },
             buttonClickListener = object : MovieStoreDialogBox.ButtonClickListener(){
                 override fun onPositiveButtonClicked() {
                     super.onPositiveButtonClicked()
@@ -48,7 +54,7 @@ class ModelDialogHandler @Inject constructor(){
         }
         return alertDialog
     }
-    fun showDialog(activity: FragmentActivity,dialog: ModelDialog){
+    fun showDialog(activity: ComponentActivity,dialog: ModelDialog){
         createDialog(activity,dialog)?.show()
     }
     private fun FragmentActivity.stringValue(

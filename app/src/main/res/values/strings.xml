@@ -1,12 +1,25 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">MovieStore</string>
+    <string name="app_name" translatable="false">MovieStore</string>
 
 
-    <string name="network_error_message_title">Network Error</string>
-    <string name="network_error_message_text">Please try again.</string>
-    <string name="repeatable_dialog_error_message">Let\'s try again.</string>
+    <string name="network_error_message_title" translatable="false">Network Error</string>
+    <string name="network_error_message_text" translatable="false">Please try again.</string>
+    <string name="repeatable_dialog_error_message" translatable="false">Let\'s try again.</string>
 
-    <string name="dialog_positive_button">Okay</string>
-    <string name="title_activity_login">LoginActivity</string>
-    <string name="login_screen_tablayout_text" tools:ignore="ExtraTranslation">Login with</string>
+    <string name="dialog_positive_button" translatable="false">Okay</string>
+    <string name="title_activity_login" translatable="false">LoginActivity</string>
+
+
+    <string name="login_screen_tablayout_text" tools:ignore="ExtraTranslation" translatable="false">Login with</string>
+    <string name="login_screen_done_button">Sign In</string>
+    <string name="login_screen_empty_field_title">Login Error</string>
+    <string name="login_screen_empty_field_text">Fields are empty</string>
+    <string name="login_screen_pincode">Enter The Pin Code</string>
+
+
+    <string name="searchbar_placeholder_movies">Search movies...</string>
+
+
+    <string name="web_client_id"></string>
+    <string name="title_activity_home">HomeActivity</string>
 </resources>

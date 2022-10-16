@@ -1,4 +1,4 @@
-package com.dag.moviestore.ui.onboard
+package com.dag.moviestore.ui.mainscreen
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -14,17 +14,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.dag.moviestore.base.compose.navcontroller.NavGraph
 import com.dag.moviestore.base.compose.navcontroller.NavScreen
-import com.dag.moviestore.base.general.BaseDialogBoxUtil
-import com.dag.moviestore.ui.theme.MovieStoreTheme
+import com.dag.moviestore.ui.mainscreen.ui.theme.MovieStoreTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var baseDialogBoxUtil: BaseDialogBoxUtil
-
+class HomeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -34,8 +28,8 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     NavGraph(
-                        startDestination = NavScreen.LoginScreen.route,
-                        isOnboard = true,
+                        startDestination = NavScreen.MovieScreen.route,
+                        isOnboard = false,
                     )
                 }
             }
@@ -43,18 +37,17 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-
 @Composable
-fun OnboardSurface(
+fun HomeSurface(
     content:@Composable ()->Unit
 ){
-    MovieStoreTheme() {
+    com.dag.moviestore.ui.theme.MovieStoreTheme() {
         Surface(
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.White),
             color = Color.Transparent
-        ){
+        ) {
             content()
         }
     }

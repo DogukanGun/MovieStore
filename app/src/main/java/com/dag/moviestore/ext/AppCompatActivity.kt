@@ -28,6 +28,12 @@ fun FragmentActivity.openActivity(
     overridePendingTransition(enterAnim,exitAnim)
 }
 
+fun Context.startNewActivity(killFirst:Boolean,intent: Intent){
+    val activity = this.findActivity()
+    if (killFirst)
+        activity?.finish()
+    activity?.startActivity(intent)
+}
 
 fun Context.findActivity(): ComponentActivity? = when (this) {
     is ComponentActivity -> this

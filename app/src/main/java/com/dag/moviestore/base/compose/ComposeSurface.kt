@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.dag.moviestore.base.compose.appbar.CustomAppbar
+import com.dag.moviestore.base.compose.bottomnavigation.CustomBottomNavigation
 import com.dag.moviestore.ui.theme.MovieStoreTheme
 
 

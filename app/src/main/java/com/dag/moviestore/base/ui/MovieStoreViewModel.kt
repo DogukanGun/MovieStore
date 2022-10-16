@@ -59,6 +59,14 @@ abstract class MovieStoreViewModel: ViewModel(){
         }
         .subscribe()
 
+    protected fun <T> Flow<BaseResult<T>>.subscribeService(
+        errorHandler: ErrorHandler? = DefaultErrorHandler(),
+        onSuccess: (T?) -> Unit
+    ) = onSuccess {
+            onSuccess.invoke(it)
+        }
+        .subscribe()
+
     protected fun <T> Flow<BaseResult<T>>.subscribeNotNull(
         errorHandler: ErrorHandler = DefaultErrorHandler(),
         onSuccess: (T) -> Unit

@@ -17,16 +17,19 @@ import androidx.compose.ui.unit.dp
 fun RoundedTextField(
     modifier: Modifier,
     hint:String,
-    keyboardType: KeyboardType
+    shape:RoundedCornerShape = RoundedCornerShape(size = 70.dp),
+    keyboardType: KeyboardType,
+    onValueChanged:(String)->Unit
 ){
     val text = remember { mutableStateOf(TextFieldValue("")) }
     OutlinedTextField(
         modifier = modifier,
         value = text.value,
-        shape = RoundedCornerShape(size = 70.dp),
+        shape = shape,
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         onValueChange = {
             text.value = it
+            onValueChanged(it.text)
         },
         placeholder = {
             Text(text = hint)
@@ -44,6 +47,7 @@ fun RoundedTextFieldPreview(){
     RoundedTextField(
         modifier = Modifier,
         hint = "Email",
-        keyboardType = KeyboardType.Text
+        keyboardType = KeyboardType.Text,
+        onValueChanged = {}
     )
 }

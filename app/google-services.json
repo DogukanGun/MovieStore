@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "802588362498",
+    "project_id": "moviestore-17582",
+    "storage_bucket": "moviestore-17582.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802588362498:android:b8bc1495c8fbf38dc5e41b",
+        "android_client_info": {
+          "package_name": "com.dag.moviestore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802588362498-t0eh59ai0p6dd5omg28ginst48r3t65v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dag.moviestore",
+            "certificate_hash": "1d7638edc9fe88838d0903fe0c05fd1c2dd8a8a0"
+          }
+        },
+        {
+          "client_id": "802588362498-5g419brpiudvndfomc0fj0v93qh6fdqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2G37LbswXUwCBUVNLaxLWsXhEZCUHr-8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802588362498-5g419brpiudvndfomc0fj0v93qh6fdqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

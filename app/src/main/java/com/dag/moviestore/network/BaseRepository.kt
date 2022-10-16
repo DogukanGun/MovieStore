@@ -8,4 +8,8 @@ open class BaseRepository {
         val response = apiCall()
         emit(response)
     }
+
+    protected fun fetchService(serviceCall:suspend () -> Any) = flow {
+        emit(serviceCall())
+    }
 }

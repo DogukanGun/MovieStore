@@ -29,15 +29,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    const val AUTHENTICATED = "authenticated"
-    const val UNAUTHENTICATED = "unauthenticated"
-
-    const val AUTHENTICATED_RETROFIT = "authenticated_retrofit"
-    const val UNAUTHENTICATED_RETROFIT = "unauthenticated_retrofit"
-
-    const val AUTHENTICATED_SERVICE = "authenticated_service"
-    const val UNAUTHENTICATED_SERVICE = "unauthenticated_service"
-
     @Provides
     @Singleton
     fun provideMovieStoreActivityListener() = MovieStoreActivityListener()
@@ -87,7 +78,6 @@ object NetworkModule {
     }
 
     @Provides
-    @Named(AUTHENTICATED)
     @Singleton
     fun provideBaseOkHttpClientAuthenticated(
         okHttpClientBuilder: OkHttpClient.Builder,
@@ -99,57 +89,19 @@ object NetworkModule {
     }
 
     @Provides
-    @Named(UNAUTHENTICATED)
-    @Singleton
-    fun provideBaseOkHttpClientUnauthenticated(
-        okHttpClientBuilder: OkHttpClient.Builder,
-        headerInterceptor: Interceptor
-    ): OkHttpClient {
-        return okHttpClientBuilder
-            .addInterceptor(headerInterceptor)
-            .build()
-    }
-
-
-    @Provides
     @Singleton
     fun provideGson(): Gson = GsonBuilder().create()
 
     @Provides
-    @Named(AUTHENTICATED_SERVICE)
     @Singleton
     fun provideMovieStoreServiceAuthenticated(
-        @Named(AUTHENTICATED_RETROFIT) retrofit: Retrofit
-    ): MovieStoreService = retrofit.create(MovieStoreService::class.java)
-
-
-    @Provides
-    @Named(UNAUTHENTICATED_SERVICE)
-    @Singleton
-    fun provideMovieStoreServiceUnauthenticated(
-        @Named(UNAUTHENTICATED_RETROFIT) retrofit: Retrofit
+        retrofit: Retrofit
     ): MovieStoreService = retrofit.create(MovieStoreService::class.java)
 
     @Provides
-    @Named(UNAUTHENTICATED_RETROFIT)
-    @Singleton
-    fun provideRetrofitUnauthenticated(
-        @Named(UNAUTHENTICATED) baseOkHttpClient: Lazy<OkHttpClient>,
-        gson: Gson
-    ): Retrofit {
-        return Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create(gson))
-            .addCallAdapterFactory(NetworkResponseAdapterFactory())
-            .baseUrl(MovieStoreApplication.baseUrl)
-            .callFactoryDelegate(baseOkHttpClient)
-            .build()
-    }
-
-    @Provides
-    @Named(AUTHENTICATED_RETROFIT)
     @Singleton
     fun provideRetrofitAuthenticated(
-        @Named(AUTHENTICATED) baseOkHttpClient: Lazy<OkHttpClient>,
+        baseOkHttpClient: Lazy<OkHttpClient>,
         gson: Gson
     ): Retrofit {
         return Retrofit.Builder()
@@ -171,7 +123,7 @@ object NetworkModule {
     @Singleton
     fun provideBaseDialogBoxUtil(
         navigator: MovieStoreNavigator,
-        @Named(AUTHENTICATED_SERVICE) service: MovieStoreService,
+        service: MovieStoreService,
         cleanActivityListener: MovieStoreActivityListener
     ) = BaseDialogBoxUtil(navigator,service,cleanActivityListener)
 
